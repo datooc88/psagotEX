@@ -1,0 +1,29 @@
+﻿@Styles.Render("~/Content/css")
+
+<div ng-app="movies">
+
+    <div ng-controller="moviesController">
+        <div id="gallery">
+            <h2>IMDB</h2>
+            <label>Find series</label><br />
+            <input class="form-control" type="text" placeholder="search movie" ng-model="search" />
+            <br />
+            <label>Order by</label><br />
+            <select class="form-control" ng-change="updateOrder(selectedOrder)" ng-model="selectedOrder">
+                <option>Title</option>
+                <option>Seasons</option>
+                <option>Views</option>
+            </select>
+
+            <br />
+            <ul id="movies">
+                <li ng-repeat="movie in movies | orderBy:selectedOrder | filter:search">
+                    <span>{{movie.Title}}</span>
+                    <span>seasons: {{movie.Seasons}}</span>
+                    <span>views: {{movie.Views}}</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
