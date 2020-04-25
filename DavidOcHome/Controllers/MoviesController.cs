@@ -13,10 +13,10 @@ namespace DavidOcHome.Controllers
     {
         Movie[] movies = new Movie[]
         {
-            new Movie { Title = "Prison break", Img="",Seasons=5,Views=4500 },
-            new Movie { Title = "Money Heist", Img="",Seasons=4,Views=1200 },
-            new Movie { Title = "Breaking bad", Img="",Seasons=5,Views=683 },
-            new Movie { Title = "Dexter",Img="",Seasons=8,Views=4782  }
+            new Movie { Id=1, Title = "Prison break", Img="",Seasons=5,Views=4500 },
+            new Movie { Id=2, Title = "Money Heist", Img="",Seasons=4,Views=1200 },
+            new Movie { Id=3, Title = "Breaking bad", Img="",Seasons=5,Views=683 },
+            new Movie { Id=4, Title = "Dexter",Img="",Seasons=8,Views=4782  }
         };
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
@@ -25,10 +25,11 @@ namespace DavidOcHome.Controllers
         {
             return movies;
         }
-
-        public IHttpActionResult GetMovie(string title)
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [Route("api/GetMovie/{id}")]
+        public IHttpActionResult GetMovie(int id)
         {
-            var movie = movies.FirstOrDefault((p) => p.Title.Contains(title));
+            var movie = movies.FirstOrDefault((p) => p.Id==id);
             if (movie == null)
             {
                 return NotFound();

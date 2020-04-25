@@ -13,10 +13,8 @@ namespace MoviesApp.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Movie()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 

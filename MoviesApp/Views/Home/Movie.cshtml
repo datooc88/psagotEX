@@ -1,0 +1,13 @@
+﻿@Styles.Render("~/Content/css")
+
+<div ng-app="movies">
+
+    <div ng-controller="movieController">
+        <div id="gallery">
+            <h2>{{movie.Title}}</h2>
+            <span>seasons: {{movie.Seasons}}</span><br />
+            <span>views: {{movie.Views}}</span>
+        </div>
+
+    </div>
+</div>

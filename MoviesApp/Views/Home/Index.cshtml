@@ -18,7 +18,7 @@
             <br />
             <ul id="movies">
                 <li ng-repeat="movie in movies | orderBy:selectedOrder | filter:search">
-                    <span>{{movie.Title}}</span>
+                    <a href="Home/Movie/{{movie.Id}}"><span>{{movie.Title}}</span></a>
                     <span>seasons: {{movie.Seasons}}</span>
                     <span>views: {{movie.Views}}</span>
                 </li>
